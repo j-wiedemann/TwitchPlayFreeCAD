@@ -9,36 +9,41 @@ Voici la liste des commandes disponibles et de leur fonction.
 
 ## CRÉATION
 
-### Créer un pavé
+### Créer un cube
 
-Vous pouvez créer un cube avec la commande !cube. Si aucun parametre n'est précisés le cube fera 10 mm de coté.
+Vous pouvez créer un cube avec la commande `!cube`. Si aucun parametre n'est précisé le cube fera 10 mm de coté.
 
-!cube longueur largeur hauteur
+#### commande:
+`!cube longueur largeur hauteur`
 
-longueur = valeur numérique
+#### arguments:
+* `longueur` (valeur numérique pour la longueur en mm)
+* `largeur` (valeur numérique pour la largeur en mm)
+* `hauteur` (valeur numérique pour la hauteur en mm)
 
-largeur = valeur numérique
+#### alias:
+box, parallelepipede, pave
 
-hauteur = valeur numérique
-
-ex: !cube 10 20.5 2
-
-alias: box, parallelepipede, pave
+#### exemples:
+> ex: !cube 10 20.5 2
 
 
 ### Créer un cylindre
 
 Vous pouvez créer un cylindre avec la commande !cylindre. Si aucun paramètre n'est précisés le cylindre aura un rayon de 2 mm et une hauteur de 10 mm.
 
-!cylindre rayon hauteur 
+#### commande:
+`!cylindre rayon hauteur`
 
-rayon = valeur numérique
+#### arguments:
+* `rayon` (valeur numérique pour le rayon en mm)
+* `hauteur` (valeur numérique pour la hauteur en mm)
 
-hauteur = valeur numérique
+#### alias:
+cylinder, cyl
 
+#### exemples:
 ex: !cylindre 5.5 20
-
-alias: cylindre, cylinder, cyl
 
 
 ### Créer une sphère
@@ -50,6 +55,24 @@ Vous pouvez créer une sphère avec la commande !sphere. Si aucun paramètre n'e
 rayon = valeur numérique
 
 ex: !sphere 10
+
+## OPÉRATIONS BOOLÉENNE
+### Soustraction
+!soustraction base outils 
+
+ex: !soustraction Cube Cylindre
+
+### Fusion
+!fusion objet1 objet2
+
+ex: !fusion Cube Cylindre
+
+### Intersection
+!intersection objet1 objet2
+
+ex: !intersection Cybe Cylindre
+
+
 
 ## TRANSFORMATIONS
 ### Translation
@@ -75,71 +98,75 @@ axes disponibles:
 
 x ou y ou z
 
-
-OPÉRATIONS BOOLÉENNE
-
-!soustraction base outils 
-
-ex: !soustraction Cube Cylindre
-
-!fusion objet1 objet2
-
-ex: !fusion Cube Cylindre
-
-!intersection objet1 objet2
-
-ex: !intersection Cybe Cylindre
-
-MODIFICATIONS
-
+### Paramètre
 !parametre objet propriété valeur
 
 ex: !parametre Cube Length 12
 
-
+### Supprimer
 
 !supprimer objet
 
 ex: !supprimer Cube
 
 
-
-INFORMATION
+## INFORMATIONS
 
 !information objet
 
 ex: !information Cube
 
 
+## AFFICHAGE
+
+### Transparence
+
+!transparence Objet Valeur
+
+### Annotation
 
 !annotation état
 
 !annotation visible/invisible
 
-
-
-VISUELLE
-
+### Couleur
+Pas encore implémenter.
 !color
 
 
+## CAMERA
 
-!transparence Objet Valeur
+#### commande:
+`!vue direction` 
 
+#### arguments:
+* `iso` (vue isométrique)
+* `dim` (vue dimétrique
+* `tri` (vue trimétrique)
+* `dessus` (vue de dessus)
+* `dessous` (vue de dessous)
+* `gauche` (vue de gauche)
+* `droite` (vue de droite)
+* `devant` (vue de devant)
+* `derriere` (vue de derriere)
+* `+` (zoom arrière)
+* `-` (zoom avant)
+* `tout` (tout voir)
 
+#### alias:
+cam
 
-CAMERA
-
-!vue direction 
-
+#### exemple:
 ex: !vue gauche
 
-paramètres disponibles:
 
-iso, dim, tri, dessus, 
+## CHALLENGE
 
-dessous, gauche, droite, 
+Il y a des objectifs à atteindre !
 
-devant, derriere, +, -, tout
+### Objectif
+Avec la commande `!objectif` vous pouvez connaitre le plan de l'objectif en cours.
 
+### Vérification
+Avec la commande `!verification` vous pouvez vérifier si l'objectif est atteint.
 
