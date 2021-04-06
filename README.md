@@ -1,13 +1,15 @@
 # TwitchPlayFreeCAD
 https://www.twitch.tv/freecadfrance
 
-Le concept est de modéliser des objets à l'aide de commandes depuis le tchat. Il y a des objectifs à atteindre, vousp ouvez les connaitre en tapant la commande **!objectif**. Pour savoir si l'objectif est atteint et passer au suivant, taper la commande **!check**.
-Pour l'instant seul quelques primitives et quelque opérations booléennes sont disponible. Mais on peut déjà faire bveaucoup avec.
+Le concept est de modéliser des objets à l'aide de commandes depuis le tchat. Vous pouvez donc piloter FreeCAD depuis le tchat à l'aide de plusieurs commandes. Il y a des objectifs à atteindre, vous pouvez en prendre connaissance en tapant la commande `!objectif`. Pour savoir si l'objectif est atteint et passer au suivant, taper la commande `!check`.
+Pour l'instant seul quelques primitives et quelques opérations booléennes sont disponible. Mais on peut déjà faire beaucoup avec ces simples commandes.
+
 Voici la liste des commandes disponibles et de leur fonction.
 
 **/!\ Lorsque vous faites référence à un objet éxistant la casse est prise en compte, il faut donc écrire avec les majuscules.**
 
 ## CRÉATION
+Ces commandes permettent de créer des primitives géométrique.
 
 ### Créer un cube
 
@@ -25,12 +27,12 @@ Vous pouvez créer un cube avec la commande `!cube`. Si aucun parametre n'est pr
 box, parallelepipede, pave
 
 #### exemples:
-> ex: !cube 10 20.5 2
+> !cube 10 20.5 2
 
 
 ### Créer un cylindre
 
-Vous pouvez créer un cylindre avec la commande !cylindre. Si aucun paramètre n'est précisés le cylindre aura un rayon de 2 mm et une hauteur de 10 mm.
+Vous pouvez créer un cylindre avec la commande `!cylindre`. Si aucun paramètre n'est précisés le cylindre aura un rayon de 2 mm et une hauteur de 10 mm.
 
 #### commande:
 `!cylindre rayon hauteur`
@@ -43,76 +45,143 @@ Vous pouvez créer un cylindre avec la commande !cylindre. Si aucun paramètre n
 cylinder, cyl
 
 #### exemples:
-ex: !cylindre 5.5 20
+> !cylindre 5.5 20
 
 
 ### Créer une sphère
 
 Vous pouvez créer une sphère avec la commande !sphere. Si aucun paramètre n'est précisés la sphere aura un rayon de 5 mm.
 
-!sphere rayon
+#### commande:
+`!sphere rayon`
 
-rayon = valeur numérique
+#### arguments:
+* `rayon` (valeur numérique pour le rayon en mm)
 
-ex: !sphere 10
+#### exemples:
+> !sphere 10
 
 ## OPÉRATIONS BOOLÉENNE
+Ces commandes permettent de faire des opérations logique sur des primitives existantes. 
 ### Soustraction
-!soustraction base outils 
+Une soustraction booléenne enlève le volume de la forme de l'outils à la forme de base.
+#### commande:
+`!soustraction base outils`
 
-ex: !soustraction Cube Cylindre
+#### arguments:
+* `base` (objet qui sert de base à l'opération booléenne)
+* `outils` (objet qui va supprimer du volume à la base)
+
+#### alias:
+sub
+
+#### exemples
+> !soustraction Cube Cylindre
 
 ### Fusion
-!fusion objet1 objet2
+La fusion permet d'unir le volume de deux objets.
 
-ex: !fusion Cube Cylindre
+#### commande:
+`!fusion Objet1 Objet2`
+
+#### arguments:
+* `Objet1` (objet qui va être fusionné)
+* `Objet2` (objet qui va être fusionné)
+
+#### alias:
+fuse
+
+#### exemples
+> !fusion Cube Cylindre
 
 ### Intersection
-!intersection objet1 objet2
+Une intersection permet d'obtenir la forme qui est commune à deux objets.
+#### commande:
+`!intersection Objet1 Objet2`
 
-ex: !intersection Cybe Cylindre
+#### arguments:
+* `Objet1` (objet qui va être mis en commun)
+* `Objet2` (objet qui va être mis en commun)
 
+#### alias:
+common
+
+#### exemples
+> !intersection Cybe Cylindre
 
 
 ## TRANSFORMATIONS
 ### Translation
 
-Pour déplacer un objet on utilise la commande !translation. Le déplacement est relatif à la position actuelle de l'objet.
+Pour déplacer un objet on utilise la commande `!translation`. Le déplacement est relatif à la position actuelle de l'objet.
 
-!translation Objet x y z 
+#### commande:
+`!translation Objet x y z`
 
-ex: !translation Cube 10 20 30
+#### arguments:
+* `Objet` (nom de l'objet à déplacer /!\ à la casse)
+* `x` (valeur numérique en mm pour la translation selon l'axe X)
+* `y` (valeur numérique en mm pour la translation selon l'axe Y)
+* `z` (valeur numérique en mm pour la translation selon l'axe Z)
 
-alias: deplacer, translate, move
+#### alias:
+move, translate, deplacer
+
+#### exemple:
+> !translation Cube 10 20 30
 
 
 ### Rotation
 
 Pour pivoter un objet on utilise la commande !rotation. Le centre de rotation est défini par son placement.
 
-!rotation Objet angle axe 
+#### commande:
+`!rotation Objet angle axe`
 
-ex: !rotation Cube 45 z
+#### arguments:
+* `Objet` (nom de l'objet à déplacer /!\ à la casse)
+* `angle` (valeur numérique en ° pour l'angle de rotation)
+* `axe` (défini l'axe de rotation, peut être `x`, `y` ou `z`)
 
-axes disponibles:
+#### alias:
+rot
 
-x ou y ou z
+#### exemple:
+> !rotation Cube 45 z
 
 ### Paramètre
-!parametre objet propriété valeur
+Cette commande permet de changer un paramètre d'une primitive.
 
-ex: !parametre Cube Length 12
+#### commande:
+`!parametre Objet Propriété valeur`
+
+#### arguments:
+* `Objet` (nom de l'objet à déplacer /!\ à la casse)
+* `Propriété` (nom de la propriété /!\ en anglais et sensible à la casse)
+* `valeur` (nouvelle valeur de la propriété)
+
+#### alias:
+param
+
+#### exemple:
+> !parametre Cube Length 12
 
 ### Supprimer
+Cette commande permet de supprimer un objet
 
 !supprimer objet
 
 ex: !supprimer Cube
 
+### Annuler
+`!ctrlz`
+
+### Refaire
+`!ctrly`
 
 ## INFORMATIONS
 
-!information objet
+`!information objet`
 
 ex: !information Cube
 
@@ -121,17 +190,17 @@ ex: !information Cube
 
 ### Transparence
 
-!transparence Objet Valeur
+`!transparence Objet Valeur`
 
 ### Annotation
 
-!annotation état
+`!annotation état`
 
 !annotation visible/invisible
 
 ### Couleur
 Pas encore implémenter.
-!color
+`!color`
 
 
 ## CAMERA
@@ -169,4 +238,3 @@ Avec la commande `!objectif` vous pouvez connaitre le plan de l'objectif en cour
 
 ### Vérification
 Avec la commande `!verification` vous pouvez vérifier si l'objectif est atteint.
-
