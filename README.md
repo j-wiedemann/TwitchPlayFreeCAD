@@ -241,7 +241,7 @@ Pas encore implémenter.
 * `tout` (tout voir)
 
 #### alias:
-cam
+cam, view
 
 #### exemple:
 > !vue gauche
