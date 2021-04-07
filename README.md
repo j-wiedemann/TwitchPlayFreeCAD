@@ -161,29 +161,47 @@ Cette commande permet de changer un paramètre d'une primitive.
 * `valeur` (nouvelle valeur de la propriété)
 
 #### alias:
-param
+param, parameter
 
 #### exemple:
 > !parametre Cube Length 12
 
+
 ### Supprimer
 Cette commande permet de supprimer un objet
 
-!supprimer objet
+#### commande:
+`!supprimer objet`
 
-ex: !supprimer Cube
+#### alias:
+destroy, remove, suppr, del
+
+#### exemple:
+> !supprimer Cube
 
 ### Annuler
+Cette commande permet d'annuler la denière commande.
+#### commande:
 `!ctrlz`
 
+#### alias:
+annuler, cancel, undo
+
 ### Refaire
+Cette commande permet de refaire la dernière opération précédement annuler.
+
+#### commande:
 `!ctrly`
+
+#### alias:
+retablir, refaire, redo
 
 ## INFORMATIONS
 
 `!information objet`
 
-ex: !information Cube
+#### exemple:
+> !information Cube
 
 
 ## AFFICHAGE
@@ -226,7 +244,7 @@ Pas encore implémenter.
 cam
 
 #### exemple:
-ex: !vue gauche
+> !vue gauche
 
 
 ## CHALLENGE
@@ -236,5 +254,11 @@ Il y a des objectifs à atteindre !
 ### Objectif
 Avec la commande `!objectif` vous pouvez connaitre le plan de l'objectif en cours.
 
+#### alias:
+goal
+
 ### Vérification
-Avec la commande `!verification` vous pouvez vérifier si l'objectif est atteint.
+Avec la commande `!valider` vous pouvez vérifier si l'objectif est atteint.
+
+#### alias:
+check, verifier, verification
